@@ -1,20 +1,25 @@
 #dynamic 0x71FDDD
 #org @givepokemon
+lockall
 checkflag 0x100
 if 0x0 goto @give
-msgbox @2 0x2
+releaseall
 end
 
 #org @give 
-setflag 0x100
+lockall
+applymovement 0xFF @move
+waitmovement 0x0
 msgbox @1 0x2
 countpokemon
 compare LASTRESULT 0x6 //Checks the LASTRESULT variable (0x800D) to see if there are 6 pokemon
 if 0x1 goto @full
-givepokemon 0xFC 0x05 0xD 0x0 0x0 0x0 //DARATTATA Lv.5 holding potion
+lockall
 fanfare 0x13E //Plays the player received pokemon fanfare
-msgbox @notify 0x4
 waitfanfare
+setflag 0x100
+givepokemon 0xFC 0x05 0xD 0x0 0x0 0x0 //DARATTATA Lv.5 holding potion
+msgbox @notify 0x4
 closeonkeypress
 msgbox @qname 0x5 //Asks the player if they want to nickname their pokemon
 compare 0x800D 0x1 //Checks to see if the player selected 'Yes'
@@ -25,6 +30,8 @@ setflag 0x829
 //activate national dex
 special 0x16F
 msgbox @3 0x2
+setvar 0x5240 0x1
+releaseall
 end
 
 #org @nickname
@@ -33,9 +40,6 @@ return //Forces the script back
 
 #org @1
 = A Pokèball is in the mail!\nAnd a Pokèdex!
-
-#org @2
-= The mailbox is empty.
 
 #org @notify
 = [Player] received DARATTATA!
@@ -51,4 +55,10 @@ return //Forces the script back
 
 #org @full
 msgbox @4 0x2
+end
+
+#org @move
+//face up
+#raw 0x1
+#raw 0xFE
 end
