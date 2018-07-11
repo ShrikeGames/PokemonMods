@@ -1,0 +1,8 @@
+#dynamic 0x720FF8 
+#org @start
+msgbox @msg 0x2  
+release
+end  
+
+#org @msg  
+= [.]  
