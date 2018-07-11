@@ -1,0 +1,15 @@
+#dynamic 0x71F10C  
+#org @start  
+trainerbattle 0x0 0x161 0x0 @intro @defeat  
+msgbox @msg 0x2  
+release
+end  
+
+#org @intro  
+= I'm in charge of this operation.
+
+#org @defeat  
+= I can't believe I lost[.]
+
+#org @msg  
+= [.] I [.] what? [.]  

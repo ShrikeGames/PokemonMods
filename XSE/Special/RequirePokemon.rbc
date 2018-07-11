@@ -1,0 +1,24 @@
+#dynamic 0x71FD95
+#org @main
+checkflag 0x100
+if 0x1 goto @haspokemon
+lock
+faceplayer
+msgbox @spk1 0x2
+applymovement 0xFF @move
+waitmovement 0x0
+release
+end
+
+#org @haspokemon
+setvar 0x5240 0x1
+end
+
+#org @spk1
+= You need to check the mail\nbefore running off!
+
+#org @move
+//step up normal
+#raw 0x11
+#raw 0xFE
+end

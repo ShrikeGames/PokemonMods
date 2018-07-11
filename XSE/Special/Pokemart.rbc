@@ -1,0 +1,20 @@
+#dynamic 0x71FC3B
+
+#org @start
+lock
+faceplayer
+msgbox @msg 0x2 
+pokemart @values
+release
+end
+
+#org @values
+#raw word 0xC
+#raw word 0xD
+#raw word 0xE
+#raw word 0xF
+#raw word 0x11
+#raw word 0x0
+
+#org @msg  
+= I'll sell you some merch.

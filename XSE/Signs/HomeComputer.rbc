@@ -1,0 +1,40 @@
+#dynamic 0x720B08
+#org @main
+lockall
+compare PLAYERFACING 0x4
+if 0x1 goto @showmsg
+msgbox @wrongside MSG_KEEPOPEN
+releaseall
+end
+
+#org @showmsg
+checkgender
+compare LASTRESULT 0x0
+if 0x1 call 0x8168C91
+compare LASTRESULT 0x1
+if 0x1 call 0x8168C9A
+releaseall
+end
+
+'---------------
+#org @male
+msgbox @fortnite MSG_KEEPOPEN
+return
+
+'---------------
+#org @female
+msgbox @minecraft MSG_KEEPOPEN
+return
+
+
+'---------
+' Strings
+'---------
+#org @wrongside
+= Oops, wrong side[.]
+
+#org @fortnite
+= A game is open on the \ncomputer called Fortnite\p[.]I better go[.]
+
+#org @minecraft
+= A game is open on the \ncomputer called Minecraft\p[.]I better go[.]

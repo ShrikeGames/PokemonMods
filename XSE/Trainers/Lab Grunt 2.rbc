@@ -1,0 +1,15 @@
+#dynamic 0x71F00C
+#org @start  
+trainerbattle 0x0 0x160 0x0 @intro @defeat  
+msgbox @msg 0x2  
+release
+end  
+
+#org @intro  
+= You're a natural meddler aren't you?
+
+#org @defeat  
+= You just couldn't leave well\nenough alone[.]
+
+#org @msg  
+= Enjoy your victory [.] for now.  

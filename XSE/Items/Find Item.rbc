@@ -1,0 +1,5 @@
+'---------------
+#org 0x71A53C
+giveitem 0xFF 0x1 MSG_FIND //find blue scarf
+release
+end

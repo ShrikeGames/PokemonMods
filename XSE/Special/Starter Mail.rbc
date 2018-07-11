@@ -1,0 +1,54 @@
+#dynamic 0x71FDDD
+#org @givepokemon
+checkflag 0x100
+if 0x0 goto @give
+msgbox @2 0x2
+end
+
+#org @give 
+setflag 0x100
+msgbox @1 0x2
+countpokemon
+compare LASTRESULT 0x6 //Checks the LASTRESULT variable (0x800D) to see if there are 6 pokemon
+if 0x1 goto @full
+givepokemon 0x25 0x05 0xD 0x0 0x0 0x0 //Vulpix Lv.5 holding potion
+fanfare 0x13E //Plays the player received pokemon fanfare
+msgbox @notify 0x4
+waitfanfare
+closeonkeypress
+msgbox @qname 0x5 //Asks the player if they want to nickname their pokemon
+compare 0x800D 0x1 //Checks to see if the player selected 'Yes'
+if 0x1 gosub @nickname //If yes then the @nickname script will run and then return
+//allow pokemon menu option and pokedex
+setflag 0x828
+setflag 0x829
+//activate national dex
+special 0x16F
+msgbox @3 0x2
+end
+
+#org @nickname
+call 0x1A74EB //Calls the script responsible for nicknaming the pokemon
+return //Forces the script back
+
+#org @1
+= A Pokèball is in the mail!\nAnd a Pokèdex!
+
+#org @2
+= The mailbox is empty.
+
+#org @notify
+= [Player] received VULPIX!
+
+#org @qname
+= Would you like to give VULPIX a\nnickname?
+
+#org @3
+= [Player] put the Pokèball\nand Pokèdex in the bag.
+
+#org @4
+= You are already carrying 6 Pokèmon.
+
+#org @full
+msgbox @4 0x2
+end

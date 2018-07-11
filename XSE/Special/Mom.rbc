@@ -1,0 +1,50 @@
+#dynamic 0x71F738 
+#org @start  
+lock
+faceplayer
+
+//has gotten their first pokemon from the mail
+checkflag 0x100
+if 0x1 goto @healme
+//otherwise tell them to check the mail!
+checkgender
+compare 0x800D 0x0
+if 0x1 goto @male
+compare 0x800D 0x1
+if 0x1 goto @female
+
+release
+end  
+
+#org @healme
+msgbox @healmsg 0x4
+closeonkeypress
+fadescreen 0x1
+fanfare 0x100
+special 0x0
+waitfanfare
+fadescreen 0x0
+msgbox @afterhealmsg 0x6
+
+end
+
+#org @male
+msgbox @malemsg 0x2
+end
+
+#org @female
+msgbox @femalemsg 0x2
+end
+
+#org @malemsg
+= MOM: Good morning, sweetheart.\pGo outside and check the mail.\nYour Pokémon may have arrived!
+
+#org @femalemsg
+= MOM: Good morning, dear.\pGo outside and check the mail.\nYour Pokémon may have arrived!
+
+#org @healmsg
+= MOM: You look tired, have a rest!
+
+#org @afterhealmsg
+= MOM: Good as new, take care!
+

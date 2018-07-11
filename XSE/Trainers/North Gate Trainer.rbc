@@ -1,0 +1,54 @@
+#dynamic 0x71F20C  
+#org @start  
+checkflag 0x101
+if 0x1 goto @alreadywon
+
+msgbox @yesno MSG_YESNO
+compare LASTRESULT 0x1
+if 0x1 goto @battle
+
+msgbox 0x83B4E1B MSG_FACE '"I don't blame you.\nTrain some and..."
+end  
+
+#org @yesno
+= I'm really tough.\nDo you want to[.]
+
+#org @intro  
+= You won't survive out there\nif you can't beat me.
+
+#org @alreadywon
+//otherwise they've already won
+msgbox @goodluck 0x2 
+end
+
+#org @battle
+trainerbattle 0x1 0x162 0x0 @intro @defeat @after 
+return
+end
+
+#org @defeat  
+= Heh, well done.\nYou'll do fine!
+
+#org @goodluck
+= Good luck out there!
+
+#org @after
+lock
+
+setflag 0x101
+msgbox @congrats 0x2 
+//give an escape rope
+giveitem 0x55 0x1 MSG_OBTAIN
+
+applymovement 0x0 @move
+waitmovement 0x0
+release
+end
+
+#org @congrats
+= Congrats!\nTake this to help you.
+
+#org @move
+#raw 0x13
+#raw 0xFE
+end
