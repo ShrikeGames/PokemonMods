@@ -1,0 +1,21 @@
+#dynamic 0x720D31
+#org @item
+
+checkflag 0x182
+if 0x1 goto @shoeson
+
+setflag 0x82F //enable running shoes
+msgbox @takeshoes 0x2
+setflag 0x182
+
+end
+
+#org @takeshoes
+= [Player] puts on the Running Shoes\nthat were in the bag.
+
+#org @alreadyon
+= The bag is empty.
+
+#org @shoeson
+msgbox @alreadyon 0x2
+end
