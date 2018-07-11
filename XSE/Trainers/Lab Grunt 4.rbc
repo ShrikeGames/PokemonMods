@@ -1,0 +1,15 @@
+#dynamic 0x800476  
+#org @start  
+trainerbattle 0x0 0x163 0x0 @intro @defeat  
+msgbox @msg 0x2  
+release
+end  
+
+#org @intro  
+= I'm going to smack that grin\noff your face.
+
+#org @defeat  
+= Pft.
+
+#org @msg  
+= [.] You're nothing kid.\n[.]Nothing. 

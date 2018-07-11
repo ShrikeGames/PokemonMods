@@ -1,0 +1,15 @@
+#dynamic 0x800476  
+#org @start  
+trainerbattle 0x0 0x164 0x0 @intro @defeat  
+msgbox @msg 0x2  
+release
+end  
+
+#org @intro  
+= We've come to steal the Genetically\nModified Pokemon!
+
+#org @defeat  
+= [.]but they were already gone\nwhen we got here[.]
+
+#org @msg  
+= They knew we were coming[.] 

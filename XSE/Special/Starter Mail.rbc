@@ -18,7 +18,7 @@ lockall
 fanfare 0x13E //Plays the player received pokemon fanfare
 waitfanfare
 setflag 0x100
-givepokemon 0xFC 0x05 0xD 0x0 0x0 0x0 //DARATTATA Lv.5 holding potion
+givepokemon 0x3A 0x05 0xD 0x0 0x0 0x0 //GROWLITHE Lv.5 holding potion
 msgbox @notify 0x4
 closeonkeypress
 msgbox @qname 0x5 //Asks the player if they want to nickname their pokemon
@@ -42,10 +42,10 @@ return //Forces the script back
 = A Pokèball is in the mail!\nAnd a Pokèdex!
 
 #org @notify
-= [Player] received DARATTATA!
+= [Player] received GROWLITHE!
 
 #org @qname
-= Would you like to give DARATTATA a\nnickname?
+= Would you like to give GROWLITHE a\nnickname?
 
 #org @3
 = [Player] put the Pokèball\nand Pokèdex in the bag.

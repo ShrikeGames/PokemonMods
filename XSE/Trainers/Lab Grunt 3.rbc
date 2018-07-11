@@ -1,4 +1,4 @@
-#dynamic 0x71F10C  
+#dynamic 0x800377 
 #org @start  
 trainerbattle 0x0 0x161 0x0 @intro @defeat  
 msgbox @msg 0x2  
@@ -9,7 +9,7 @@ end
 = I'm in charge of this operation.
 
 #org @defeat  
-= I can't believe I lost[.]
+= I wasn't really in charge[.]
 
 #org @msg  
-= [.] I [.] what? [.]  
+= [.]

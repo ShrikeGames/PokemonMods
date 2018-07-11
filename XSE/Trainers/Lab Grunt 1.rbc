@@ -1,4 +1,4 @@
-#dynamic 0x71EF0C  
+#dynamic 0x800179  
 #org @start  
 trainerbattle 0x0 0x15F 0x0 @intro @defeat  
 msgbox @msg 0x2  
