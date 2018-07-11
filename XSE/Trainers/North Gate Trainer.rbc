@@ -7,8 +7,11 @@ msgbox @yesno MSG_YESNO
 compare LASTRESULT 0x1
 if 0x1 goto @battle
 
-msgbox 0x83B4E1B MSG_FACE '"I don't blame you.\nTrain some and..."
+msgbox @nobattle MSG_FACE
 end  
+
+#org @nobattle
+= I don't blame you.\nTrain some and come back.
 
 #org @yesno
 = I'm really tough.\nDo you want to[.]
@@ -39,7 +42,7 @@ setflag 0x101
 msgbox @congrats 0x2 
 //give an escape rope
 giveitem 0x55 0x1 MSG_OBTAIN
-
+//step to the right, out of the way
 applymovement 0x0 @move
 waitmovement 0x0
 release
