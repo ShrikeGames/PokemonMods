@@ -1,4 +1,4 @@
-#dynamic 0x800000
+#dynamic 0x80013D
 #org @main
 lock
 faceplayer
