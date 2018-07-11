@@ -11,7 +11,7 @@ msgbox @1 0x2
 countpokemon
 compare LASTRESULT 0x6 //Checks the LASTRESULT variable (0x800D) to see if there are 6 pokemon
 if 0x1 goto @full
-givepokemon 0x25 0x05 0xD 0x0 0x0 0x0 //Vulpix Lv.5 holding potion
+givepokemon 0xFC 0x05 0xD 0x0 0x0 0x0 //DARATTATA Lv.5 holding potion
 fanfare 0x13E //Plays the player received pokemon fanfare
 msgbox @notify 0x4
 waitfanfare
@@ -38,10 +38,10 @@ return //Forces the script back
 = The mailbox is empty.
 
 #org @notify
-= [Player] received VULPIX!
+= [Player] received DARATTATA!
 
 #org @qname
-= Would you like to give VULPIX a\nnickname?
+= Would you like to give DARATTATA a\nnickname?
 
 #org @3
 = [Player] put the Pokèball\nand Pokèdex in the bag.
